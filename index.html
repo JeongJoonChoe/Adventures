@@ -9,11 +9,11 @@
 </head>
 <body>
 	<div class="home-screen">
-		<header role="banner">
+		<header class="container" role="banner">
 			<h1>Adventure Time</h1>
 			<input type="text" placeholder="search a location" class="js-search-query">
 		</header>
-		<div class="popular-locations">
+		<div class="container popular-locations">
 			<h2>Popular Locations</h2>
 			<div class="location-card"></div>
 			<div class="location-card"></div>
@@ -22,35 +22,77 @@
 		</div>
 	</div>
 	<div class="location-page">
-		<div class="navigaton-bar">
+		<div class="nav nav-bar">
 			<h2>Adventure Time</h2>
-			<input type="text" placegolder="search a location" class="js-search-query">
+			<input type="text" placeholder="search a location" class="js-search-query">
 		</div>
 		<header>
 			<h1>
-				<span class="js-location-name">Location</span>
+				<span class="location-name">Location</span>
 			</h1>
+			<span>logo</span>
 		</header>
 		<main role="main">
-			<div class="content-container">
-				<div class="top-picks-container">
+			<div class="container location-info-container">
+				<section class="container top-picks-container">
 					<h2>Top Picks</h2>
-					<div class="js-top-lists">
-						div.js-top-venue*5
+					<div class="top-venues-container">
+						<div class="top-venues">
+							<img class="js-venue-photo" src="" alt="">
+							<ul class="venue-information">
+								<li class="venue-name"></li>
+								<li class="venue-categories"></li>
+								<li class="venue-hours"><a href="" class="venue-link">more on <span class="venue-name"></span></a></li>
+							</ul>
+						</div>
 					</div>
-				</div>
-				<div>
-					<h2></h2>
-					<div></div>
-				</div>
-				<div>
-					<h2></h2>
-					<div></div>
-				</div>
-				<div>
-					<h2></h2>
-					<div></div>
-				</div>
+				</section>
+				<section class="container outdoor-container">
+					<h2>Fun Activties</h2>
+					<div>
+						<div class="outdoor-venue">
+							<h3 class="outdoor-name"></h3>
+							<img class="outdoor-image" src="" alt="">
+							<p>category:<span class="js-outdoor-category" hours: <span class="outdoor-hours"></span> <a href="" class="outdoor-link">more information</a></p>
+						</div>
+					</div>
+				</section>
+
+				<section class="container food-container">
+					<h2>Food</h2>
+					<ul class="photo-list">
+						<li class="food-photo"><img src="http://finderscourse.com/sources/images/your-guides-photo-blank.jpg" alt=""></li>
+						<li class="food-photo"><img src="http://finderscourse.com/sources/images/your-guides-photo-blank.jpg" alt=""></li>
+						<li class="food-photo"><img src="http://finderscourse.com/sources/images/your-guides-photo-blank.jpg" alt=""></li>
+						<li class="food-photo"><img src="" alt=""></li>
+						<li class="food-photo"><img src="" alt=""></li>
+					</ul>
+					<div class="container food-venue-container">
+						<div class="food-venues">
+							<img class="venue-photo js-venue-photo" src="https://www.janilink.com/img/p/O/blank%20floor%20sign%20view%20img.png" alt="">
+							<ul class="venue-information">
+								<li class="venue-name"></li>
+								<li class="venue-categories"></li>
+								<li class="venue-hours"><a href="" class="venue-link">more on <span class="venue-name"></span></a></li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<section class="video-container">
+					<img src="" alt="">
+					<p><span class="location-name">location name</span>Travel Guide</p>
+				</section>
+				<section class="event-container">
+					<div>
+						<h2>Live Events</h2>
+					</div>
+					<ul class="event-list">
+						<li>
+							<h3 class="event-name"></h3>
+							<p>category:<span class="event-category" hours: <span class="event-hours"></span> <a href="" class="event-link">more information</a></p>
+						</li>
+					</ul>
+				</section>
 			</div>
 		</main>
 	</div>
@@ -67,12 +109,11 @@
 
 
 
-
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script
   src="https://code.jquery.com/jquery-3.2.1.js"
   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
   crossorigin="anonymous"></script>
-  <script src="main.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="main.js"></script>
 </body>
 </html>

@@ -112,5 +112,9 @@ function updateLocationInfo(key) {
 		};
 	})
 }
+addLocationName('los angeles');
+updateLocationInfo('outdoor');
+console.log(LOCATION_INFO);
+
 
 //function display 
