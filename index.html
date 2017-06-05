@@ -4,15 +4,75 @@
 	<meta charset="UTF-8">
 	<title>Adventure Time</title>
 	<meta name="description" content="App that allows users to research popular restaurants, events, and activities in a given location.">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="main.css" type="text/css">
 </head>
 <body>
-	<div class="home-page-container">
+	<div class="home-screen">
 		<header role="banner">
 			<h1>Adventure Time</h1>
 			<input type="text" placeholder="search a location" class="js-search-query">
 		</header>
+		<div class="popular-locations">
+			<h2>Popular Locations</h2>
+			<div class="location-card"></div>
+			<div class="location-card"></div>
+			<div class="location-card"></div>
+			<div class="location-card"></div>
+		</div>
 	</div>
-	
+	<div class="location-page">
+		<div class="navigaton-bar">
+			<h2>Adventure Time</h2>
+			<input type="text" placegolder="search a location" class="js-search-query">
+		</div>
+		<header>
+			<h1>
+				<span class="js-location-name">Location</span>
+			</h1>
+		</header>
+		<main role="main">
+			<div class="content-container">
+				<div class="top-picks-container">
+					<h2>Top Picks</h2>
+					<div class="js-top-lists">
+						div.js-top-venue*5
+					</div>
+				</div>
+				<div>
+					<h2></h2>
+					<div></div>
+				</div>
+				<div>
+					<h2></h2>
+					<div></div>
+				</div>
+				<div>
+					<h2></h2>
+					<div></div>
+				</div>
+			</div>
+		</main>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+  <script src="main.js"></script>
 </body>
 </html>
