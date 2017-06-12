@@ -13,95 +13,111 @@ var LOCATION_INFO= {
 
 var TEMPLATES= {
 	page: `<div class="location-page">
-						<div class="nav nav-bar">
-							<h2>Adventure Time</h2>
-							<form action="" class="js-search-form">
-								<input type="text" placeholder="search a location" class="js-search-query">
-								<input type="submit" class="js-submit" value="search"></input>
-							</form>
+			<div class="navbar">
+				<div class="navbar-brand">
+					<img class="brand-image" src="http://cdn.shopify.com/s/files/1/0257/6087/products/Palm-Trees_Single_Front_grande.png?v=1487376286" alt="Palm Palm-Trees_Single_Front_grande">
+					<h3>Adventures</h3>
+					<div>
+					<form action="" class="js-search-form form-inline">
+						<input type="text" placeholder="search a location" class="js-search-query form-control mr-1">
+						<button class="js-submit btn" type="submit">search</button>
+					</form>
+					</div>
+				</div>
+			</div>
+			<header class="container">
+				<h1><span class="location-name"></span> - <i class="fa fa-rocket" aria-hidden="true"></i>
+				</h1>
+			</header>
+			<main role="main">
+				<div class="container location-info-container">
+					<div class="row">
+						<div class="container col-lg-8">
+							<section class="section-container top-picks-container">
+								<h2>Top Picks - <i class="fa fa-thumbs-up" aria-hidden="true"></i></h2> 
+								<div class="venue-list js-top-venues-container">
+									
+								</div>
+							</section>
+							<section class="section-container outdoor-container">
+								<h2>Outdoor Activties - <i class="fa fa-tree" aria-hidden="true"></i></h2>
+								<div class="outdoor-venues-container">
+
+								
+
+								</div>
+							</section>
 						</div>
-						<header>
-							<h1 class="location-name">
-							</h1>
-							<span>logo</span>
-						</header>
-						<main role="main">
-							<div class="container location-info-container">
-								<section class="container top-picks-container">
-									<h2>Top Picks</h2>
-									<div class="top-venues-container">
-									</div>
-								</section>
-								<section class="container outdoor-container">
-									<h2>Fun Activties</h2>
-									<div class="outdoor-venues-container">
-									</div>
-								</section>
-								<section class="container food-container">
-									<h2>Food</h2>
-									<ul class="photo-list">
-									</ul>
-									<div class="container food-venues-container">
-									</div>
-								</section>
-								<section class="video-container">
-									<p><span class="location-name">location name</span> Travel Guide</p>
-								</section>
-								<section class="event-container">
-										<h2>Live Events</h2>
-									<ul class="event-list">
-									</ul>
-								</section>
-							</div>
-						</main>
-					</div>"`,
-	top:`<div class="top-venue">
-			<img class="js-venue-photo" src="" alt="">
-			<ul class="venue-information">
-				<li class="venue-name"></li>
-				<li class="venue-categories"></li>
-				<li><span class="venue-hours"></span><a href="" class="venue-link"> more on <span class="venue-name"></span></a></li>
-			</ul>
+						<div class="container col-lg-4">
+							<section class="video-container">	
+							</section>
+							<section class="section-container event-container">
+								<h2>Live Events - <i class="fa fa-music" aria-hidden="true"></i></h2>
+								<ul class="venue-list js-event-list">
+									<p>No current live events </p>									
+								</ul>
+							</section>
+						</div>
+					</div>
+					<div class="row">
+						<div class="container col-lg-12">
+							<section class="section-container food-container">
+								<h2>Popular Food and Restaurants - <i class="fa fa-coffee" aria-hidden="true"></i></h2>
+								<ul class="container photo-list">
+
+									
+								</ul>
+								<div class="venue-list js-food-venues-container">
+
+									
+									
+							</section>
+						</div>						
+					</div>
+				</div>
+			</main>
+			<footer><i class="fa fa-caret-square-o-up fa-lg" aria-hidden="true"></i> written and coded by Jeong Joon "Peter" Choe</footer>
 		</div>`,
+	top:`<div class="venue">
+			<img class="js-venue-photo venue-image-size" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3J5ap47O_1qrHJabs8EtY7lLOJD74gf9YGO_uAucs_qB_YvtfAA" alt="">
+			<ul class="venue-information">
+				<li>Name: <span class="venue-name">Restaurant Title</span></li>
+				<li>Category: <span class="venue-categories">Mexican Restaurant</span></li>
+				<li>Venue hours: <span class="venue-hours">unavailable</span></li>
+				<li>For more information: <a href="" class="venue-link"><span class="venue-name">Restaurant Title</span></a></li>
+			</ul>
+		 </div>`,
 	outdoor:`<div class="outdoor-venue">
-				<h3 class="outdoor-name"></h3>
-				<img class="outdoor-image" src="" alt="">
-				<p>category:<span class="js-outdoor-category"></span> hours: <span class="outdoor-hours"></span> <a href="" class="outdoor-link">more information</a></p>
+				<div class="card">
+					<img class="card-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3J5ap47O_1qrHJabs8EtY7lLOJD74gf9YGO_uAucs_qB_YvtfAA" alt="Card image">
+					<div class="card-img-overlay">
+						<h4 class="card-title outdoor-name">Outdoor Name</h4>
+						<p class="card-text">category: <span class="js-outdoor-category">Park</span></p>
+						<p class="card-text">hours: <span class="outdoor-hours">unavailable</span></p>
+						<p class="card-text bottom"><a href="" class="outdoor-link">click here for more info</a></p>
+					</div>
+				</div>
 			</div>`,
-	"food photos":`<li class="food-photo"><img src="http://finderscourse.com/sources/images/your-guides-photo-blank.jpg" alt=""></li>`,
 	food:`<div class="food-venue">
-			<img class="venue-photo js-venue-photo" src="https://www.janilink.com/img/p/O/blank%20floor%20sign%20view%20img.png" alt="">
+			<img class="js-venue-photo venue-image-size" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3J5ap47O_1qrHJabs8EtY7lLOJD74gf9YGO_uAucs_qB_YvtfAA" alt="">
 			<ul class="venue-information">
-				<li class="venue-name"></li>
-				<li class="venue-categories"></li>
-				<li><span class="venue-hours"></span><a href="" class="venue-link">more on <span class="venue-name"></span></a></li>
+				<li>Name: <span class="venue-name">Restaurant Title</span></li>
+				<li>Category: <span class="venue-categories">Mexican Restaurant</span></li>
+				<li>Venue hours: <span class="venue-hours">unavailable</span></li>
+				<li>For more information: <a href="" class="venue-link"><span class="venue-name">Restaurant Title</span></a></li>
 			</ul>
-		</div>`,
-	photoList:`<li class="food-photo"><img src="" alt=""></li>`,
+		 </div>`,
+	photoList:`<li class="food-photo">
+						<img class="image" src="" alt="">
+				</li>`,
 	events:`<li>
-				<h3 class="event-name"></h3>
-				<p>category:<span class="event-category"></span> hours: <span class="event-hours"></span> <a href="" class="event-link">more information</a></p>
+				<h3 class="event-name">La-Live</h3>
+				<p>Category:<span class="event-category"></span><br> Hours: <span class="event-hours">close in 5 hours</span><br> <a href="" class="event-link">more information</a></p>
 			</li>`,
-	video:`<div>
-  			<iframe src="http://www.youtube.com/embed/W7qWa52k-nE"
-   			width="560" height="315" frameborder="0"</iframe>
-			</div>`	
+	video:`<h2><span class="location-name">Los Angeles</span> travel guide - <i class="fa fa-youtube-play" aria-hidden="true"></i></h2>`	
 }
 
-var homePage = `
-		<div class="home-screen">
-			<header class="container" role="banner">
-				<h1>Adventure Time</h1>
-				<input type="text" placeholder="search a location" class="js-search-query">
-			</header>	
-			<div class="container popular-locations">
-				<h2>Popular Locations</h2>
-				<div class="location-card"></div>
-				<div class="location-card"></div>
-				<div class="location-card"></div>
-				<div class="location-card"></div>
-			</div>
-		</div>`
+
 //update location info
 function addLocationName(value) {
 	LOCATION_INFO.name = value;
@@ -185,6 +201,11 @@ function getJsonResponse(param){
 		type:'GET',
 		success:function(result){
 			updateLocationInfo(result,param)
+		},
+		error:function(a,s,v){
+			resetLocationInfo();
+			addLocationName('('+v+') invalid location name. Please try again');
+			displayPage(TEMPLATES,LOCATION_INFO);
 		}
 	})
 }
@@ -198,17 +219,27 @@ function getVideoJson(location_name,callback){
 		type:'video',
 		maxResults:1,
 	}
-	$.getJSON('https://www.googleapis.com/youtube/v3/search',query,callback)
+	return $.getJSON('https://www.googleapis.com/youtube/v3/search',query,function(result){callback(result)})
 }
 
 function addVideoUrl(results){
 	var id = results.items[0].id.videoId;
-	LOCATION_INFO.video_url = "https://www.youtube.com/embed/"+id
-	var videoPlayer = $(TEMPLATES.video);
-	videoPlayer.find('iframe').attr('src', LOCATION_INFO.video_url);
-	console.log(videoPlayer);
-	$('.video-container').html(videoPlayer);
-
+	LOCATION_INFO.video_url = "https://www.youtube.com/embed/"+id;
+}
+// function renderVideo(LOCATION_INFO){
+// 	var videoPlayer = $(TEMPLATES.video);
+// 	videoPlayer.find('.location-name').text(LOCATION_INFO.video_url);
+// 	videoPlayer.find('iframe').attr('src', LOCATION_INFO.video_url);
+// 	$(videoPlayer).appendTo($('.video-container'));
+// }
+function renderVideo(LOCATION_INFO){
+	v = document.createElement('iframe');
+	$(v).attr('src',LOCATION_INFO.video_url);
+	$(v).attr('width',381);
+	$(v).attr('height',275).appendTo($(".video-container"));
+	var videoTitle = $(TEMPLATES.video);
+	videoTitle.find('.location-name').text(LOCATION_INFO.name);
+	videoTitle.appendTo($(".video-container"));
 }
 
 // funtion toggleHiddenClass()
@@ -219,6 +250,7 @@ function addVideoUrl(results){
 function displayPage(TEMPLATES,LOCATION_INFO) {
 	var locationPage = $(TEMPLATES.page);
 	locationPage.find('.location-name').text(LOCATION_INFO.name);
+	console.log(LOCATION_INFO.video_url);
 	$('.page').html(locationPage);
 }
 
@@ -238,7 +270,7 @@ function displayTopPicks(LOCATION_INFO){
 	var results = LOCATION_INFO['topPicks'].map(function(item){
 		return renderTopPicks(item)
 	})
-	$('.top-venues-container').html(results);
+	$('.js-top-venues-container').html(results);
 }
 
 //render video
@@ -262,7 +294,7 @@ function displayFoodVenue(LOCATION_INFO){
 	var results = LOCATION_INFO['food'].map(function(item){
 		return renderFoodVenue(item)
 	})
-	$('.food-venues-container').html(results);
+	$('.js-food-venues-container').html(results);
 }
 function renderFoodPhotos(info){
 	var photo = $(TEMPLATES.photoList);
@@ -306,7 +338,7 @@ function displayEventVenue(LOCATION_INFO){
 	var results = LOCATION_INFO['live events'].map(function(item){
 		return renderEventVenue(item)
 	})
-	$('.event-list').html(results);
+	$('.js-event-list').html(results);
 }
 
 //Event handlers
@@ -319,7 +351,9 @@ function handleSearch(){
 		var location = $(this).find('.js-search-query').val();
 		addLocationName(location);		
 		displayPage(TEMPLATES,LOCATION_INFO);
-		getVideoJson(LOCATION_INFO.name,addVideoUrl);
+		getVideoJson(LOCATION_INFO.name,addVideoUrl).done(function(results){
+			renderVideo(LOCATION_INFO)}
+		)
 
 		getJsonResponse('topPicks').done(function(results){
 			displayTopPicks(LOCATION_INFO)})
