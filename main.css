@@ -1,31 +1,28 @@
-body{
-	background-image: url("https://static.pexels.com/photos/2324/skyline-buildings-new-york-skyscrapers.jpg");
-	background-position: fill;
+*{
 	box-sizing:border-box;
-    font-family: 'Patrick Hand SC', cursive;
 }
-.home-page{
-	height:900px;
-	display:flex;
-	justify-content:center;
-	align-items: center;
+body{
+    font-family: 'Patrick Hand SC', cursive;
+    background-image: url("https://static.pexels.com/photos/2324/skyline-buildings-new-york-skyscrapers.jpg");
+	margin:0;
 }
 .hidden{
 	display: none;
 }
-.header-container{
-	text-align:center;
+.home-page{
+	height:700px;
 	display:flex;
-	justify-content: center;
+	justify-content:center;
+	align-items: center;
+}
+.header-container{
+	display:flex;
+	text-align:center;
 	flex-direction: column;
 	align-items: center;
 }
 .home-page-title{
-	font-size:100px;
 	font-family: 'Amatic SC', cursive;
-}
-h1{
-	font-size:50px;
 }
 h2{
 	border-top:3px solid black;
@@ -36,26 +33,18 @@ h2{
 i{
 	margin-left:10px;
 }
-.navbar{
-	background-color: #708090;
-	border-bottom:5px double white;
-	height:65px;
-}
 .brand-image {
 	height:45px;
 	width:45px;
 	margin-top:auto;
 	margin-bottom:auto;
 }
-	
-.navbar-brand h3,.navbar-brand div{
-	display:inline-block;
+.navbar-brand{
+	display:flex;
+	align-items: center;
 }
 
-
 .location-info-container{
-	width:1250px;
-	padding:10px;
 	font-size:20px;
 }
 ul {
@@ -69,26 +58,28 @@ ul {
 
 .venue-list{
 	height:500px;
-	overflow:scroll
+	overflow-y:scroll;
 }
 .venue{
 	display:flex;
-	border:1px solid black;
+	border:1px solid white;
 }
 .venue-image-size{
 	width:250px;
 	height:175px;
 }
-.video-container{
-	border:5px double black;
-}
-.video-container h2{
-	color:black;
+.venue:hover .venue-image-size{
+	width:300px;
+	height:200px;
 }
 
-.event-name{
+.black-font{
 	color:black;
 }
+.white-font{
+	color:white;
+}
+
 
 .js-event-list li{
 	border-bottom:2px solid white;
@@ -102,16 +93,7 @@ ul {
 .card{
 	text-align: center;
 	color:white;
-}
-.card:hover{
-	font-size:25px;
-	font-weight:bolder;
-}
-.card:hover .card-img{
-	opacity:1;
-}
-.card:hover h4{
-	font-size:35px;
+	border:2px solid black;
 }
 .card-img{
 	height:300px;
@@ -121,43 +103,21 @@ ul {
 .card-img-overlay{
 	padding-top:50px;
 }
+.card:hover{
+	font-weight:bolder;
+}
+.card:hover .card-img{
+	opacity:1;
+}
+.card:hover h4{
+	font-size:30px;
+}
 .bottom{
 	position:absolute;
 	bottom:10px;
 }
 
-.photo-list{
-	display:flex;
-	overflow-x:scroll;
-	min-height:225px;
-}
-.photo-list li{
-	margin:2px;
-}
-.image{
-	height:250px;
-	min-width:250px;
-	border:1px;
-	border-radius:10px;
-}
-.food-photo img {
-    -webkit-transition: height 1s, min-width 1s;
-    transition: height 1s, min-width 1s;
-}
 
-.food-photo:hover img {
-	height:275px;
-	min-width:300px;
-}
-.food-venues-container{
-	height:500px;
-	overflow:scroll;
-}
-.food-venue{
-	display:flex;
-	border:1px solid white;
-	color:white;
-}
 .fa-tree{
 	color:green;
 }
@@ -173,4 +133,17 @@ ul {
 footer{
 	text-align:right;
 	color:white;
+}
+@media only screen and (max-width:500px){
+	.venue{
+		font-size:12px;
+		overflow:hidden;
+	}
+	.venue-image-size{
+		width:150px;
+		height:125px;
+	}
+	footer{
+		font-size:8px;
+	}
 }

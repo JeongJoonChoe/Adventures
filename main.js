@@ -13,16 +13,14 @@ var LOCATION_INFO= {
 
 var TEMPLATES= {
 	page: `<div class="location-page">
-			<div class="navbar">
+			<div class="navbar container-fluid">
 				<div class="navbar-brand">
-					<img class="brand-image" src="http://cdn.shopify.com/s/files/1/0257/6087/products/Palm-Trees_Single_Front_grande.png?v=1487376286" alt="Palm Palm-Trees_Single_Front_grande">
-					<h3>Adventures</h3>
-					<div>
+					<img class="brand-image mr-1" src="http://cdn.shopify.com/s/files/1/0257/6087/products/Palm-Trees_Single_Front_grande.png?v=1487376286" alt="Palm Palm-Trees_Single_Front_grande">
+					<h3 class="mr-1">Adventures</h3>
 					<form action="" class="js-search-form form-inline">
 						<input type="text" placeholder="search a location" class="js-search-query form-control mr-1">
 						<button class="js-submit btn" type="submit">search</button>
 					</form>
-					</div>
 				</div>
 			</div>
 			<header class="container">
@@ -32,29 +30,25 @@ var TEMPLATES= {
 			<main role="main">
 				<div class="container location-info-container">
 					<div class="row">
-						<div class="container col-lg-8">
+						<div class="container col-xl-8 col-md-12">
 							<section class="section-container top-picks-container">
 								<h2>Top Picks - <i class="fa fa-thumbs-up" aria-hidden="true"></i></h2> 
 								<div class="venue-list js-top-venues-container">
-									
 								</div>
 							</section>
-							<section class="section-container outdoor-container">
+							<section class="section-container">
 								<h2>Outdoor Activties - <i class="fa fa-tree" aria-hidden="true"></i></h2>
 								<div class="outdoor-venues-container">
-
-								
-
 								</div>
 							</section>
 						</div>
-						<div class="container col-lg-4">
-							<section class="video-container">	
+						<div class="container col-xl-4 col-md-12">
+							<section class="section-container video-container">	
 							</section>
 							<section class="section-container event-container">
-								<h2>Live Events - <i class="fa fa-music" aria-hidden="true"></i></h2>
+								<h2 class="black-font">Live Events - <i class="fa fa-music" aria-hidden="true"></i></h2>
 								<ul class="venue-list js-event-list">
-									<p>No current live events </p>									
+									<p>No current live events </p>								
 								</ul>
 							</section>
 						</div>
@@ -63,20 +57,14 @@ var TEMPLATES= {
 						<div class="container col-lg-12">
 							<section class="section-container food-container">
 								<h2>Popular Food and Restaurants - <i class="fa fa-coffee" aria-hidden="true"></i></h2>
-								<ul class="container photo-list">
-
-									
-								</ul>
 								<div class="venue-list js-food-venues-container">
-
-									
-									
+								</div>					
 							</section>
 						</div>						
 					</div>
 				</div>
 			</main>
-			<footer><i class="fa fa-caret-square-o-up fa-lg" aria-hidden="true"></i> written and coded by Jeong Joon "Peter" Choe</footer>
+			<footer>photos and information by Foursquare &middot<i class="fa fa-caret-square-o-up fa-lg" aria-hidden="true"></i> written and coded by Jeong Joon "Peter" Choe</footer>
 		</div>`,
 	top:`<div class="venue">
 			<img class="js-venue-photo venue-image-size" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3J5ap47O_1qrHJabs8EtY7lLOJD74gf9YGO_uAucs_qB_YvtfAA" alt="">
@@ -98,23 +86,20 @@ var TEMPLATES= {
 					</div>
 				</div>
 			</div>`,
-	food:`<div class="food-venue">
-			<img class="js-venue-photo venue-image-size" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3J5ap47O_1qrHJabs8EtY7lLOJD74gf9YGO_uAucs_qB_YvtfAA" alt="">
-			<ul class="venue-information">
-				<li>Name: <span class="venue-name">Restaurant Title</span></li>
-				<li>Category: <span class="venue-categories">Mexican Restaurant</span></li>
-				<li>Venue hours: <span class="venue-hours">unavailable</span></li>
-				<li>For more information: <a href="" class="venue-link"><span class="venue-name">Restaurant Title</span></a></li>
-			</ul>
-		 </div>`,
-	photoList:`<li class="food-photo">
-						<img class="image" src="" alt="">
-				</li>`,
+	food:`<div class="venue white-font">
+		<img class="js-venue-photo venue-image-size" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3J5ap47O_1qrHJabs8EtY7lLOJD74gf9YGO_uAucs_qB_YvtfAA" alt="">
+		<ul class="venue-information">
+			<li>Name: <span class="venue-name">Restaurant Title</span></li>
+			<li>Category: <span class="venue-categories">Mexican Restaurant</span></li>
+			<li>Venue hours: <span class="venue-hours">unavailable</span></li>
+			<li>For more information: <a href="" class="venue-link"><span class="venue-name">Restaurant Title</span></a></li>
+		</ul>
+	</div>`,
 	events:`<li>
-				<h3 class="event-name">La-Live</h3>
+				<h3 class="event-name black-font">La-Live</h3>
 				<p>Category:<span class="event-category"></span><br> Hours: <span class="event-hours">close in 5 hours</span><br> <a href="" class="event-link">more information</a></p>
 			</li>`,
-	video:`<h2><span class="location-name">Los Angeles</span> travel guide - <i class="fa fa-youtube-play" aria-hidden="true"></i></h2>`	
+	video:`<h2 class="black-font"><span class="location-name">Los Angeles</span> travel guide - <i class="fa fa-youtube-play" aria-hidden="true"></i></h2>`	
 }
 
 
@@ -235,7 +220,7 @@ function addVideoUrl(results){
 function renderVideo(LOCATION_INFO){
 	v = document.createElement('iframe');
 	$(v).attr('src',LOCATION_INFO.video_url);
-	$(v).attr('width',381);
+	$(v).attr('width',320);
 	$(v).attr('height',275).appendTo($(".video-container"));
 	var videoTitle = $(TEMPLATES.video);
 	videoTitle.find('.location-name').text(LOCATION_INFO.name);
@@ -296,17 +281,6 @@ function displayFoodVenue(LOCATION_INFO){
 	})
 	$('.js-food-venues-container').html(results);
 }
-function renderFoodPhotos(info){
-	var photo = $(TEMPLATES.photoList);
-	photo.find('img').attr('src',info['photo url']);
-	return photo
-}
-function displayFoodPhotos(LOCATION_INFO){
-	var results = LOCATION_INFO['food'].map(function(item){
-		return renderFoodPhotos(item)
-	})
-	$('.photo-list').html(results);
-}
 
 //render activities
 function renderOutdoorVenue(info){
@@ -358,8 +332,7 @@ function handleSearch(){
 		getJsonResponse('topPicks').done(function(results){
 			displayTopPicks(LOCATION_INFO)})
 		getJsonResponse('food').done(function(results){
-			displayFoodVenue(LOCATION_INFO);
-			displayFoodPhotos(LOCATION_INFO)})
+			displayFoodVenue(LOCATION_INFO)})
 		getJsonResponse('outdoor').done(function(results){
 			displayOutdoorVenue(LOCATION_INFO);
 		})
