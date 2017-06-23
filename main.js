@@ -2,6 +2,8 @@ var CLIENT_ID ="JETVBQNOROLAJTOHR4BJ4UZ2B0MS3BEAHPLQB2Y4KSJ0EIHF";
 var CLIENT_SECRET="S0JDLPSTT5ZAMKXWKAV0LSHULM15FKBWSYVKZ0PZ52GKTYMX";
 var YOUTUBE_KEY = "AIzaSyCkFiq1gqrv-0QNruryNbNdAd3cUjDH-0U"
 
+// object to hold all the information about the location
+
 var LOCATION_INFO= {
 	name:'',
 	video_url:'',
@@ -11,6 +13,7 @@ var LOCATION_INFO= {
 	"live events":[]
 }
 
+// html templates
 var TEMPLATES= {
 	page: `<div class="location-page">
 			<div class="navbar container-fluid">
@@ -123,7 +126,7 @@ function createRequest(param){
 			client_id: CLIENT_ID,
 			client_secret: CLIENT_SECRET,
 			near:LOCATION_INFO.name,
-			query:param,
+			query:param,		//only the 'live events' section uses 'query' instead of 'section'
 			limit:5,
 			day:'any',
 			time:'any',
@@ -171,12 +174,12 @@ function createVenueObject(item) {
 }
 
 
-// calls the key to get the specific json Response. then updates the LOCATION_INFO
 function updateLocationInfo(results, key) {
 	for (var i = 0; i < 5; i++){
 	LOCATION_INFO[key].push(createVenueObject(results.response.groups[0].items[i]))
 	};
 }
+// calls the key to get the specific json Response. then updates the LOCATION_INFO
 function getJsonResponse(param){
 	var request = createRequest(param);
 	return $.ajax({
@@ -195,28 +198,28 @@ function getJsonResponse(param){
 	})
 }
 
-
+// requests youtube video id using the youtube api
 function getVideoJson(location_name,callback){
 	var query = {
 		part:'snippet',
 		key:YOUTUBE_KEY,
-		q: location_name + " travel guide",
+		q: location_name + " travel guide",				// Enters the location name + " travel guide" as the search query
 		type:'video',
-		maxResults:1,
+		maxResults:1,									//only returns the first top video matching the search query
 	}
 	return $.getJSON('https://www.googleapis.com/youtube/v3/search',query,function(result){callback(result)})
 }
 
+// adds the youtube link to the LOCATION_INFO object using the video id
+// https://www.youtube.com/embed/+id
 function addVideoUrl(results){
 	var id = results.items[0].id.videoId;
 	LOCATION_INFO.video_url = "https://www.youtube.com/embed/"+id;
 }
-// function renderVideo(LOCATION_INFO){
-// 	var videoPlayer = $(TEMPLATES.video);
-// 	videoPlayer.find('.location-name').text(LOCATION_INFO.video_url);
-// 	videoPlayer.find('iframe').attr('src', LOCATION_INFO.video_url);
-// 	$(videoPlayer).appendTo($('.video-container'));
-// }
+
+//creates the iframe tag with the correct src, width, and height attributes
+//then appends it to the DOM
+
 function renderVideo(LOCATION_INFO){
 	v = document.createElement('iframe');
 	$(v).attr('src',LOCATION_INFO.video_url);
@@ -227,11 +230,10 @@ function renderVideo(LOCATION_INFO){
 	videoTitle.appendTo($(".video-container"));
 }
 
-// funtion toggleHiddenClass()
 
 //Display functions
 
-//display location page
+//displays the location page without any info of the location
 function displayPage(TEMPLATES,LOCATION_INFO) {
 	var locationPage = $(TEMPLATES.page);
 	locationPage.find('.location-name').text(LOCATION_INFO.name);
@@ -239,7 +241,7 @@ function displayPage(TEMPLATES,LOCATION_INFO) {
 	$('.page').html(locationPage);
 }
 
-//render top picks
+//creates the top picks html template with the information from the LOCATION_INFO
 function renderTopPicks(info){
 	var top = $(TEMPLATES.top);
 	top.find('.venue-name').text(info.name);
@@ -250,7 +252,7 @@ function renderTopPicks(info){
 	return top;
 }
 
-//display top picks section
+//display top picks section into the DOM
 function displayTopPicks(LOCATION_INFO){
 	var results = LOCATION_INFO['topPicks'].map(function(item){
 		return renderTopPicks(item)
@@ -258,14 +260,7 @@ function displayTopPicks(LOCATION_INFO){
 	$('.js-top-venues-container').html(results);
 }
 
-//render video
-// function displayVideo(LOCATION_INFO){
-// 	var videoPlayer = $(TEMPLATES.video);
-// 	videoPlayer.find('iframe').attr('src', LOCATION_INFO.video_url);
-// 	console.log(videoPlayer);
-// 	$('.video-container').html(videoPlayer);
-// }
-//render food 
+//creates the food venue html template with the information from the LOCATION_INFO
 function renderFoodVenue(info){
 	var venue = $(TEMPLATES.food);
 	venue.find('.venue-name').text(info.name);
@@ -275,6 +270,7 @@ function renderFoodVenue(info){
 	venue.find('a').attr('href',info.link);
 	return venue;
 }
+//display the food venue into the DOM
 function displayFoodVenue(LOCATION_INFO){
 	var results = LOCATION_INFO['food'].map(function(item){
 		return renderFoodVenue(item)
@@ -282,7 +278,7 @@ function displayFoodVenue(LOCATION_INFO){
 	$('.js-food-venues-container').html(results);
 }
 
-//render activities
+//creates the outdoor venue html template with the information from the LOCATION_INFO
 function renderOutdoorVenue(info){
 	var venue = $(TEMPLATES.outdoor);
 	venue.find('.outdoor-name').text(info.name);
@@ -292,6 +288,7 @@ function renderOutdoorVenue(info){
 	venue.find('a').attr('href',info.link);
 	return venue;	
 }
+//display the outdoor venue into the DOM
 function displayOutdoorVenue(LOCATION_INFO){
 	var results = LOCATION_INFO['outdoor'].map(function(item){
 		return renderOutdoorVenue(item)
@@ -299,7 +296,7 @@ function displayOutdoorVenue(LOCATION_INFO){
 	$('.outdoor-venues-container').html(results);
 }
 
-//render events
+//creates the live events venue html template with the information from the LOCATION_INFO
 function renderEventVenue(info){
 	var venue = $(TEMPLATES.events);
 	venue.find('.event-name').text(info.name);
@@ -308,6 +305,7 @@ function renderEventVenue(info){
 	venue.find('a').attr('href',info.link);
 	return venue
 }
+//display the event venue into the DOM
 function displayEventVenue(LOCATION_INFO){
 	var results = LOCATION_INFO['live events'].map(function(item){
 		return renderEventVenue(item)
@@ -321,14 +319,14 @@ function displayEventVenue(LOCATION_INFO){
 function handleSearch(){
 	$('.page').on('submit','.js-search-form',(function(event) {
 		event.preventDefault();
-		resetLocationInfo();
-		var location = $(this).find('.js-search-query').val();
-		addLocationName(location);		
-		displayPage(TEMPLATES,LOCATION_INFO);
-		getVideoJson(LOCATION_INFO.name,addVideoUrl).done(function(results){
+		resetLocationInfo();		//before each search, the LOCATION_INFO is reset and emptied
+		var location = $(this).find('.js-search-query').val(); // gets the location the user has inputted
+		addLocationName(location);	//adds the location name into the LOCATION_INFO.name	
+		displayPage(TEMPLATES,LOCATION_INFO); //displays the location page without any information
+		getVideoJson(LOCATION_INFO.name,addVideoUrl).done(function(results){ //displays the youtube video
 			renderVideo(LOCATION_INFO)}
 		)
-
+		// displays the venues for each section 
 		getJsonResponse('topPicks').done(function(results){
 			displayTopPicks(LOCATION_INFO)})
 		getJsonResponse('food').done(function(results){
